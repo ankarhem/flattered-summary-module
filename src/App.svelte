@@ -1,16 +1,13 @@
 <script lang="ts">
   import type { MountProps } from '@norce/module-adapter-svelte';
-  import {
-    CheckoutEventEmitter,
-    Events,
-    type DiscountData,
-  } from '@norce/checkout-lib';
+  import { Events, type DiscountData } from '@norce/checkout-lib';
   import { onMount } from 'svelte';
   import { culture, t } from './translations';
   import { createFormatter } from '@norce/checkout-lib';
 
   export let api: MountProps['api'];
   export let data: MountProps['data'];
+  export let EventEmitter: MountProps['EventEmitter'];
 
   let formEl: HTMLFormElement;
   const formatter = createFormatter(data.order.culture, data.order.currency);
@@ -39,7 +36,7 @@
       const formData = new FormData(formEl);
       const code = formData.get('discountCode') as string;
       formEl.reset();
-      CheckoutEventEmitter.dispatch({
+      EventEmitter.dispatch({
         event: Events.AddDiscount,
         payload: code,
       });
