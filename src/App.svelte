@@ -57,9 +57,9 @@
   <div class="grid gap-2 pb-2 border-b">
     <div class="flex justify-between">
       <h2>{t('Total Items')}</h2>
-      <span class={pulsingClass}
-        >{formatter.format(data.order.cart.total.includingVat)}</span
-      >
+      <span class={pulsingClass}>
+        {formatter.format(data.order.cart?.total?.includingVat)}
+      </span>
     </div>
     <div class="flex justify-between">
       <h2>{t('Shipping')}</h2>
@@ -71,13 +71,13 @@
         </span>
       {/if}
     </div>
-    {#if data.order.cart.discounts.length}
+    {#if data.order.cart?.discounts?.length}
       <div class="flex justify-between">
         <h2>{t('Discount')}</h2>
         <span class={pulsingClass}>
           &minus; {formatter.format(
             data.order.cart.discounts.reduce(
-              (acc, cur) => acc + cur.value.includingVat,
+              (acc, cur) => acc + cur.value?.includingVat || 0,
               0
             )
           )}
@@ -88,9 +88,9 @@
 
   <div class="flex justify-between pb-2 border-b">
     <h2>{t('Total incl. VAT')}</h2>
-    <span class={pulsingClass}
-      >{formatter.format(data.order.total.includingVat)}</span
-    >
+    <span class={pulsingClass}>
+      {formatter.format(data.order.total?.includingVat)}
+    </span>
   </div>
 
   <form bind:this={formEl} on:submit={handleSubmit}>
