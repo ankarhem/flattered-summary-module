@@ -63,13 +63,9 @@
     </div>
     <div class="flex justify-between">
       <h2>{t('Shipping')}</h2>
-      {#if data.order.shippings?.length}
-        <span class={pulsingClass}>
-          {formatter.format(
-            data.order.shippings?.[0]?.total?.includingVat || 0
-          )}
-        </span>
-      {/if}
+      <span class={pulsingClass}>
+        {formatter.format(data.order.shippings?.[0]?.total?.includingVat || 0)}
+      </span>
     </div>
     {#if data.order.cart?.discounts?.length}
       <div class="flex justify-between">

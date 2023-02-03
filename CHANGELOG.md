@@ -1,5 +1,11 @@
 # @norce/custom-module-flattered-summary
 
+## 0.0.6
+
+### Patch Changes
+
+- shipping 0kr if none
+
 ## 0.0.5
 
 ### Patch Changes
