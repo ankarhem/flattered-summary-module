@@ -1,5 +1,11 @@
 # @norce/custom-module-flattered-summary
 
+## 0.1.0
+
+### Minor Changes
+
+- update deps
+
 ## 0.0.6
 
 ### Patch Changes
